@@ -1,0 +1,15 @@
+<p>Are you sure you want to delete "{{item}}"?</p>
+
+<a href = "{% url 'list' %}"> Cancel</a>
+
+<form method = "POST" action = "">
+    {% csrf_token %}
+    <input type = "submit" name ="Confirm">
+</form>
+
+
+<!--This looks like a confirmation prompt for deleting an item from a list. The HTML code includes a message asking the user to confirm whether they want to delete the item "{{item}}". The message is followed by a "Cancel" link that will take the user back to the list view without deleting the item.
+
+If the user decides to proceed with the deletion, they can click the "Confirm" button, which will submit a POST request to the server. The server should handle this request and delete the item from the list before redirecting the user to the list view.
+
+The {% csrf_token %} is a Django template tag that adds a hidden input field containing a cross-site request forgery (CSRF) token to the form. This is a security measure that helps prevent malicious attacks on the site.
